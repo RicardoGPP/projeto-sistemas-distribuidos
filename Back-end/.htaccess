@@ -1,0 +1,8 @@
+#Habilita a engine do Apache para roteamento
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Roteamento das requisições para o módulo de recepção
+RewriteRule ^api/pessoa/buscar/([0-9]*)$ Recepcao.php?metodo=buscarPessoa&codigo=$1 [L]
+RewriteRule ^api/pessoa/listar$ Recepcao.php?metodo=listarPessoas [L]
